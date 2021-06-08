@@ -1,0 +1,33 @@
+nav {
+    font-family: 'Dancing Script';
+    color: white;
+    text-align: center;
+    border-bottom: 2px solid white;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: rgb(177, 116, 126);
+}
+
+
+h1 {
+    font-size: 3rem;
+    font-style: cursive;
+}
+  
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-flow: row nowrap;
+}
+  
+li {
+    font-size: 2rem;
+}
+  
+a, a:visited{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-style: normal;
+}
