@@ -4,6 +4,6 @@ import './CartWidget.css'
 
 export const CartWidget = () => {
     return <>
-      <ShoppingCartTwoToneIcon/>
+      <ShoppingCartTwoToneIcon className="carrito"/>
     </>
   };
