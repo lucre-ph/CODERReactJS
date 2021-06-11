@@ -1,4 +1,4 @@
-.nav {
+nav {
     font-family: 'Dancing Script';
     color: white;
     text-align: center;
@@ -6,9 +6,8 @@
     width: 100%;
     display: flex;
     flex-flow: row nowrap;
-    background-color: rgb(177, 116, 126);
+    background-color: rgb(177, 85, 100); 
 }
-
 
 h1 {
     font-size: 3rem;
