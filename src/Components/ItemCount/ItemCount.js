@@ -5,10 +5,10 @@ import './ItemCountStyle.css'
 
 export function ItemCount ({stock, initial, onAdd}) {
     const [conteoItems, setCount] = useState(initial);
-    const removeItem = ({initial}) => {
+    function removeItem () {
         setCount(conteoItems>initial && conteoItems-1)
     };
-    const addItem = ({stock}) => {
+    function addItem() {
         setCount(conteoItems<stock && conteoItems+1)
     };
     return <div className="itemCount">
