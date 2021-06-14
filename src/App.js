@@ -6,7 +6,7 @@ import {ItemListContainer} from './components/itemListContainer/ItemListContaine
 const App = () => {
   return <>
     <ButtonAppBar/>    
-    <ItemListContainer greeting='¡Hola! Acá va a ir el catálogo'/>
+    <ItemListContainer/>
   </>
 }
 

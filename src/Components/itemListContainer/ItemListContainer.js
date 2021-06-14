@@ -1,11 +1,12 @@
 import React from 'react';
 import {ItemCount} from '../ItemCount/ItemCount'
 
-const style = {textAlign: 'center', color: 'pink', fontWeight: '800'}
+// const style = {textAlign: 'center', color: 'pink', fontWeight: '800'}
 export const ItemListContainer = props => {
-  const {greeting} = props;
+  function onAdd (valor) {
+    alert(`Agregaste ${valor} productos al carrito`);
+  }
     return <div>
-      <p style={style}>{greeting}</p>
-      {<ItemCount/>}
+      <ItemCount onAdd={onAdd} stock={7} initial={1}/>
     </div>
   };
