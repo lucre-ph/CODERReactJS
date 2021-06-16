@@ -8,9 +8,9 @@ const Navbar = props => {
     <nav>
       <h1>{marca}</h1>
       <ul>
-        <li><a href=''>Cakes</a></li>
-        <li><a href=''>Cupcakes</a></li>
-        <li><a href=''>Pies</a></li>
+        <li>Cakes</li>
+        <li>Cupcakes</li>
+        <li>Pies</li>
       </ul>
       <CartWidget/>
     </nav>

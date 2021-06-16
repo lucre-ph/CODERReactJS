@@ -3,9 +3,10 @@ import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissa
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import './ItemCountStyle.css'
 
+
 export function ItemCount ({stock, initial, onAdd}) {
     const [conteoItems, setCount] = useState(initial);
-    function removeItem () {
+    function removeItem() {
         setCount(conteoItems>initial && conteoItems-1)
     };
     function addItem() {

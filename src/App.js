@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import ButtonAppBar from './components/navbar/Navbar';
-import {ItemListContainer} from './components/itemListContainer/ItemListContainer';
+import {ItemListContainer} from './screens/itemListContainer/ItemListContainer';
 
 const App = () => {
   return <>
