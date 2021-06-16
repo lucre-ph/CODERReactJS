@@ -37,10 +37,6 @@ const loader = () => {
   </>
 }
 
-//SET TIME OUT
-setTimeout(loader(), 2000);
-
-
 //PROMISE PARA CATALOGO
 const promesaCatalogo = new Promise ((resolve, reject) => {
   const array = [productos];
@@ -49,6 +45,7 @@ const promesaCatalogo = new Promise ((resolve, reject) => {
 
 promesaCatalogo.then (result => console.log(result));
 promesaCatalogo.catch (error => console.log(error));
+promesaCatalogo.finally(() => setTimeout(loader(),2000));
 
 
 //COMPONENTE CONTENEDOR DE CATALOGO
