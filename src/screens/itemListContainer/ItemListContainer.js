@@ -1,5 +1,5 @@
 //IMPORTS
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {ItemList} from '../itemList/ItemList';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
@@ -8,25 +8,28 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 //ARRAY DE PRODUCTOS
 const productos = [
   {
-      title: 'Cheesecake',
-      img: '..../public/img/cheesecake.jpg',
-      alt: 'torta cheesecake',
-      price: 500,
-      stock: 10
+    title: 'Cheesecake', 
+    img: '../public/img/cheesecake.jpg', 
+    alt: 'torta cheesecake', 
+    price: 500, 
+    stock: 10,
+    id: 1
   },
   {
-      title: 'Torta de chocolate',
-      img: './chocolate.jpg',
-      alt: 'torta de chocolate',
-      price: 500,
-      stock: 10
+    title: 'Torta de chocolate', 
+    img: './chocolate.jpg', 
+    alt: 'torta de chocolate', 
+    price: 500, 
+    stock: 10,
+    id: 2
   },
   {
-      title: 'Eclair',
-      img: './eclair.jpg',
-      alt: 'eclair',
-      price: 500,
-      stock: 10
+    title: 'Eclair', 
+    img: './eclair.jpg', 
+    alt: 'eclair', 
+    price: 500, 
+    stock: 10,
+    id: 3
   }
 ]
 
@@ -37,20 +40,30 @@ const loader = () => {
   </>
 }
 
-//PROMISE PARA CATALOGO
+//PROMISE PARA CATALOGO, USO DE SET TIME OUT
 const promesaCatalogo = new Promise ((resolve, reject) => {
-  const array = [productos];
-  array.length>0 ? resolve(array) : reject ("Error al obtener los productos. Intenta nuevamente en unos instantes");
+  setTimeout((resolve([productos]), 2000));  
+  [productos].length<0 && reject ("Error al obtener los productos. Intenta nuevamente en unos instantes");
 })
-
-promesaCatalogo.then (result => console.log(result));
-promesaCatalogo.catch (error => console.log(error));
-promesaCatalogo.finally(() => setTimeout(loader(),2000));
 
 
 //COMPONENTE CONTENEDOR DE CATALOGO
-export const ItemListContainer = props => {
+export const ItemListContainer = () => {
+    const [catalogo, setCatalogo] = useState([]);
+    
+    const ejecutarCatalogo = () => {
+      promesaCatalogo().then(() => {
+      const arrayCatalogo = [productos];
+      setCatalogo(arrayCatalogo);
+      [catalogo].length<0 && promesaCatalogo().catch (error => console.log(error));
+      // promesaCatalogo().finally (loader(), 2000);
+    })
+    useEffect(() => {
+      ejecutarCatalogo();
+    }, [])};
+
+
     return <>
-      <ItemList/>
+      <ItemList propsProductos={[arrayCatalogo]}/>
     </>
   };
