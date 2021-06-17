@@ -57,7 +57,7 @@ export const ItemListContainer = () => {
     [catalogo].length<0 && promesaCatalogo().catch (error => console.log(error));
   })
   return <>
-    <ItemList propsProductos={[catalogo]}/>
+    <ItemList arrayProductos={[catalogo]}/>
   </>
   }
   useEffect(() => {ejecutarCatalogo();}, [])  

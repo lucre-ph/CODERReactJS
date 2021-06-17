@@ -2,11 +2,12 @@
 import React from 'react';
 import {Item} from '../item/Item';
 
-export const ItemList = propsProductos => {
-    const Productos = propsProductos.map((product, i) =>
-    <Productos imagen={product.img} titulo={product.title} i={i}/>);
 
-    return <>
-        <Item title={product.title} img={product.img} alt={product.alt} price= {product.price} i={i}/>
-    </>
+
+export const ItemList = arrayProductos => {
+    const listaDeProductos = arrayProductos.map((producto, i) => 
+        <Item titulo={producto.title} precio={producto.price} img={producto.img} alt={producto.alt} i={i}/>);
+    return <div>
+        <Item props={listaDeProductos}/>
+    </div>
 }
