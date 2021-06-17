@@ -49,21 +49,17 @@ const promesaCatalogo = new Promise ((resolve, reject) => {
 
 //COMPONENTE CONTENEDOR DE CATALOGO
 export const ItemListContainer = () => {
-    const [catalogo, setCatalogo] = useState([]);
-    
-    const ejecutarCatalogo = () => {
-      promesaCatalogo().then(() => {
-      const arrayCatalogo = [productos];
-      setCatalogo(arrayCatalogo);
-      [catalogo].length<0 && promesaCatalogo().catch (error => console.log(error));
-      // promesaCatalogo().finally (loader(), 2000);
-    })
-    useEffect(() => {
-      ejecutarCatalogo();
-    }, [])};
-
-
-    return <>
-      <ItemList propsProductos={[arrayCatalogo]}/>
-    </>
-  };
+  const [catalogo, setCatalogo] = useState([]);
+  const ejecutarCatalogo = () => {
+    promesaCatalogo().then(() => {
+    const arrayCatalogo = [productos];
+    setCatalogo(arrayCatalogo);
+    [catalogo].length<0 && promesaCatalogo().catch (error => console.log(error));
+  })
+  return <>
+    <ItemList propsProductos={[catalogo]}/>
+  </>
+  }
+  useEffect(() => {ejecutarCatalogo();}, [])  
+  [catalogo].length===0 && loader();
+};
