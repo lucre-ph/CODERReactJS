@@ -1,6 +1,7 @@
 //IMPORTS
 import React from 'react';
 import {ItemDetail} from '../ItemDetail/ItemDetail'
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 /*Al iniciar utilizando un efecto de montaje debe llamar a una promise que en 2segs devuelva
 un item y lo guarde en un estado*/
@@ -11,7 +12,7 @@ const productos = [
     title: 'Cheesecake', 
     img: '../public/img/cheesecake.jpg', 
     alt: 'torta cheesecake', 
-    detail: ,
+    detail: 'Porción de cheesecake aterciopelado',
     price: 500, 
     stock: 10,
     id: 1
@@ -20,7 +21,7 @@ const productos = [
     title: 'Torta de chocolate', 
     img: './chocolate.jpg', 
     alt: 'torta de chocolate', 
-    detail: ,
+    detail: 'Porción de torta de chocolate húmeda',
     price: 500, 
     stock: 10,
     id: 2
@@ -29,7 +30,7 @@ const productos = [
     title: 'Eclair', 
     img: './eclair.jpg', 
     alt: 'eclair', 
-    detail: ,
+    detail: 'Unidad de Eclair',
     price: 500, 
     stock: 10,
     id: 3
@@ -44,29 +45,30 @@ const loader = () => {
 }
 
 //PROMISE PARA CATALOGO, USO DE SET TIME OUT
-const promesaCatalogo = new Promise ((resolve, reject) => {
+const promesaDetalles = new Promise ((resolve, reject) => {
   setTimeout((resolve([productos]), 2000));  
   [productos].length<0 && reject ("Error al obtener los productos. Intenta nuevamente en unos instantes");
 })
 
-export const ItemList = arrayProductos => {
-    arrayProductos.map((producto, i) => 
-        <Item titulo={producto.title} precio={producto.price} img={producto.img} alt={producto.alt} i={i}/>);
-}
 
 //COMPONENTE CONTENEDOR DE CATALOGO
-export const ItemListContainer = () => {
+export const ItemDetailContainer = () => {
+    arrayProductos.map((producto, i) => 
+    <Item titulo={producto.title} precio={producto.price} img={producto.img} alt={producto.alt} detail={producto.detail} i={i}/>);
   const [catalogo, setCatalogo] = useState([]);
-  const ejecutarCatalogo = () => {
-    promesaCatalogo().then(() => {
-    const arrayCatalogo = [productos];
-    setCatalogo(arrayCatalogo);
-    [catalogo].length<0 && promesaCatalogo().catch (error => console.log(error));
-  })
-  return <>
-    <ItemDetail props={[catalogo]}/>
-  </>
-  }
-  useEffect(() => {ejecutarCatalogo();}, [])  
-  [catalogo].length===0 && loader();
+  
 };
+
+const ejecutarCatalogo = () => {
+    
+    return <>
+      <ItemDetail props={[catalogo]}/>
+    </>
+    }
+    useEffect(() => {promesaDetalles().then(() => {
+      const arrayProductos = [productos];
+      setCatalogo(arrayProductos);
+      [catalogo].length<0 && promesaDetalles().catch (error => console.log(error));
+    });}, [])  
+    
+    [catalogo].length===0 && loader();
