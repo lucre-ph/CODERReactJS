@@ -50,11 +50,11 @@ const promesaCatalogo = () => {
 //COMPONENTE CONTENEDOR DE CATALOGO
 export const ItemListContainer = () => {
   const [catalogo, setCatalogo] = useState([]);  
-  useEffect(() => {promesaCatalogo().then(productos => {
+  useEffect(() => {
+    promesaCatalogo().then(productos => {
     const dataCatalogo = productos
     setCatalogo(dataCatalogo)}, [catalogo])  
   })
-    // [catalogo].length===0 && loader();
 
   return <>
     <ItemList arrayProductos={catalogo}/>

@@ -4,10 +4,8 @@ import {Item} from '../item/Item';
 
 //COMPONENTE ITEMLIST
 export const ItemList = arrayProductos => {
-    const {prods} = arrayProductos;
     
-    return <>
-        {prods.map((producto, i) => 
-            <Item titulo={producto.title} precio={producto.price} img={producto.img} alt={producto.alt} i={i}/>)}
-    </>
+    return arrayProductos.map((producto, i) => 
+        <Item producto={producto} i={i}/>)
+    
 }

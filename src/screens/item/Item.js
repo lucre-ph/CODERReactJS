@@ -1,11 +1,11 @@
 //IMPORTS
 import React from 'react';
 
-export const Item = ({titulo, precio, img, alt, i})=> {
+export const Item = ({producto, i}) => {
     return <React.Fragment key={i}>
-        <img alt={alt}>{img}</img>
-        <h3>{titulo}</h3>
-        <h5>${precio}</h5>
+        <img alt={producto.alt}>{producto.img}</img>
+        <h3>{producto.titulo}</h3>
+        <h5>${producto.precio}</h5>
         <button>Agregar al carrito</button>
     </React.Fragment>
 }
