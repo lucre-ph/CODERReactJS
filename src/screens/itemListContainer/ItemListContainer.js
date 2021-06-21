@@ -33,33 +33,30 @@ const productos = [
   }
 ]
 
-//LOADER-SPINNER
+//COMPONENTE LOADER-SPINNER
 const loader = () => {
   return <>
     <CircularProgress color="secondary"/>
   </>
 }
 
-//PROMISE PARA CATALOGO, USO DE SET TIME OUT
-const promesaCatalogo = new Promise ((resolve, reject) => {
-  setTimeout((resolve([productos]), 2000));  
-  [productos].length<0 && reject ("Error al obtener los productos. Intenta nuevamente en unos instantes");
-})
-
+//CREACION DE PROMISE PARA CATALOGO, USO DE SET TIME OUT
+const promesaCatalogo = () => {
+  return new Promise ((resolve, reject) => {
+    setTimeout(() => resolve({productos}), 2000);  
+    [productos].length<0 && reject ("Error al obtener los productos. Intenta nuevamente en unos instantes");
+})};
 
 //COMPONENTE CONTENEDOR DE CATALOGO
 export const ItemListContainer = () => {
-  const [catalogo, setCatalogo] = useState([]);
-  const ejecutarCatalogo = () => {
-    promesaCatalogo().then(() => {
-    const arrayCatalogo = [productos];
-    setCatalogo(arrayCatalogo);
-    [catalogo].length<0 && promesaCatalogo().catch (error => console.log(error));
+  const [catalogo, setCatalogo] = useState([]);  
+  useEffect(() => {promesaCatalogo().then(productos => {
+    const dataCatalogo = productos
+    setCatalogo(dataCatalogo)}, [catalogo])  
   })
+    // [catalogo].length===0 && loader();
+
   return <>
-    <ItemList arrayProductos={[catalogo]}/>
+    <ItemList arrayProductos={catalogo}/>
   </>
-  }
-  useEffect(() => {ejecutarCatalogo();}, [])  
-  [catalogo].length===0 && loader();
 };
