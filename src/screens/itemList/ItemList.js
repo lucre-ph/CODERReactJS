@@ -6,8 +6,8 @@ import {Item} from '../item/Item';
 export const ItemList = arrayProductos => {
     
     return <React.Fragment>
-        {arrayProductos.map((producto, i) => {
-            <Item producto={producto} i={i}/> })}
+        {arrayProductos.map((producto) => {
+            <Item {...producto}/> })}
     </React.Fragment>
     
 }
