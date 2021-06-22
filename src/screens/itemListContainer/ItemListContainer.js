@@ -31,9 +31,6 @@ const productos = [
   }
 ]
 
-// const loader = () => {
-//   return <CircularProgress color="secondary"/>
-// }
 
 const promesaCatalogo = () => {
   return new Promise ((resolve, reject) => {
