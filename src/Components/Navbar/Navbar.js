@@ -1,20 +1,21 @@
 import React from 'react';
 import {CartWidget} from '../cartWidget/CartWidget';
 import './Navbar.css';
+import {Link} from 'react-router-dom';
 
-const Navbar = props => {
+export const Navbar = () => {
   const marca = 'LBakery';
+  const categoryId1 = 'Dulces';
+  const categoryId2 = 'Salados'
+
   return <>
     <nav>
-      <h1>{marca}</h1>
+      <h1><Link to='/'>{marca}</Link></h1>
       <ul>
-        <li>Cakes</li>
-        <li>Cupcakes</li>
-        <li>Pies</li>
+        <li><Link to={`/category/${categoryId1}`}>{categoryId1}</Link></li>
+        <li><Link to={`/category/${categoryId2}`}>{categoryId2}</Link></li>
       </ul>
       <CartWidget/>
     </nav>
   </>
 };
-
-export default Navbar;

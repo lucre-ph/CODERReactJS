@@ -1,15 +1,12 @@
 import React from 'react';
 import './App.css';
-import ButtonAppBar from './components/navbar/Navbar';
-import {ItemListContainer} from './screens/itemListContainer/ItemListContainer';
-import {ItemDetailContainer} from './screens/ItemDetailContainer/ItemDetailContainer'
+import {BrowserRouter} from 'react-router-dom';
+import {Ruteo} from './Router/Ruteo';
 
 const App = () => {
-  return <>
-    <ButtonAppBar/>    
-    <ItemListContainer/>
-    <ItemDetailContainer/>
-  </>
+  return <BrowserRouter>
+    <Ruteo/>
+  </BrowserRouter>
 }
 
 export default App;

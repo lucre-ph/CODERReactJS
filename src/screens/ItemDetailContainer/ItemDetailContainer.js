@@ -1,36 +1,23 @@
 import React, {useState, useEffect} from 'react';
-import {ItemDetail} from './components/ItemDetail/ItemDetail'
+import {ItemDetail} from './components/ItemDetail/ItemDetail';
+import {Container} from '@material-ui/core';
+// import CircularProgress from '@material-ui/core/CircularProgress';
+import {useParams} from 'react-router-dom';
+import {promesaCatalogo} from '../Services/promises';
 
 
-const productos = [
-    {
-      title: 'Cheesecake', 
-      img: '/img/cheesecake.jpg', 
-      alt: 'torta cheesecake', 
-      detail: 'Porción del más fresco y cremoso cheesecake, con salsa y lluvia de frutos rojos',
-      price: 300, 
-      stock: 15,
-      id: 1
-    }
-]
-  
-  const getItems = () => {
-    return new Promise ((resolve, reject) => {
-      setTimeout(() => productos.length > 0 ? resolve (productos) : reject ("Error al obtener los productos. Intenta nuevamente en unos instantes"), 2000);  
-    })
-  };
-  
   export const ItemDetailContainer = () => {
     const [productDetail, setProductDetail] = useState([]);  
+    const {id} = useParams ();
+
     useEffect(() => {
-      getItems().then(detail => {
-        const detalleProducto = detail
-        setProductDetail(detalleProducto)
-      }, [])  
+      promesaCatalogo().then (items => {
+        setProductDetail(items.filter(item => item.id === id))
+      }, [id])  
     })
 
-    return <React.Fragment>
+    return <Container maxWidth="sm">
         {productDetail.map((item, i) => {
-            return <ItemDetail key={i} {...item}/>})}
-    </React.Fragment>
+          return <ItemDetail key={i} {...item}/>})}
+    </Container>
 };
