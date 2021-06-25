@@ -4,6 +4,8 @@ import {Container} from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {useParams} from 'react-router-dom';
 import {promesaCatalogo} from '../Services/promises';
+import 'materialize-css/dist/css/materialize.min.css'
+
 
 
 export const ItemListContainer = () => {
@@ -19,6 +21,6 @@ export const ItemListContainer = () => {
   
   
   return <>
-  {catalogo.length === 0 ? <CircularProgress/> : <Container maxWidth="sm"><ItemList arrayProductos={catalogo}/></Container>}
+     {catalogo.length === 0 ? <CircularProgress/> : <Container><ItemList arrayProductos={catalogo}/></Container>}
   </>
 }

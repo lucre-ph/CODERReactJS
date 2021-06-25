@@ -13,7 +13,7 @@ export const Navbar = () => {
   return <>
     <nav>
       <h1><Link to='/'>{marca}</Link></h1>
-      <ul className="right">
+      <ul>
         <li><Link to={`/category/${categoryId1}`}>{categoryId1}</Link></li>
         <li><Link to={`/category/${categoryId2}`}>{categoryId2}</Link></li>
       </ul>
