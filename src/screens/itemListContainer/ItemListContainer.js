@@ -12,13 +12,10 @@ export const ItemListContainer = () => {
 
   useEffect(() => {
     promesaCatalogo().then(items => {
-      console.log(items)
-      const dataCatalogoFiltrada = items.filter(item => item.id === id);
-      setCatalogo(dataCatalogoFiltrada)
+
+      id === undefined ? setCatalogo(items) : setCatalogo(items.filter(item => item.category === id))
     })     
   }, [id])  
-
-  console.log(catalogo)
   
   
   return <>

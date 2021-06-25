@@ -12,12 +12,13 @@ import {promesaCatalogo} from '../Services/promises';
 
     useEffect(() => {
       promesaCatalogo().then (items => {
-        setProductDetail(items.filter(item => item.id === id))
-      }, [id])  
-    })
+        setProductDetail(items.filter(item => item.id == id))
+      })  
+    }, [id])
 
-    return <Container maxWidth="sm">
-        {productDetail.map((item, i) => {
-          return <ItemDetail key={i} {...item}/>})}
+
+    return <Container maxWidth="sm"> 
+      {productDetail.map((item, i) => {
+        return <ItemDetail key={i} {...item}/>})}
     </Container>
 };
