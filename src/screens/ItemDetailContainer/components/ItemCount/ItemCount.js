@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-
+import ReactCSSTransitionGroup from 'react-transition-group';
 import './ItemCountStyle.css'
 import 'materialize-css/dist/css/materialize.min.css'
 import {Link} from 'react-router-dom';
@@ -15,8 +15,8 @@ const ItemCount = props => {
 const ButtonsComponent = ({cambiarStock, stock}) => {
     return <>
        <div>
-          <button className="waves-effect waves-light btn-small" onClick={() => cambiarStock(stock+1)}>+</button>
-          <button className="waves-effect waves-light btn-small" onClick={() => cambiarStock(stock-1)}>-</button>
+          <button className="waves-effect waves-light btn-small" onClick={() => {        cambiarStock(stock+1)}}>+</button>
+          <button className="waves-effect waves-light btn-small" onClick={() => {        cambiarStock(stock-1)}}>-</button>
        </div>
        <span>
           {/* <button className="agregar" onClick={() => onAdd(conteoItems)}>Add to cart <AddShoppingCartIcon/></button> */}
@@ -34,13 +34,15 @@ const ItemCountContainer = ({componente: StockHandler}) => {
     <StockHandler stock={stock} cambiarStock={handleStock}/></>;
 }
 
-export const EventoCompra = props => {
+export const EventoCompra = ({stock, i}) => {
+    console.log(stock)
+    console.log(i)
     return <ItemCountContainer componente={ButtonsComponent}/>
 }
 
 
 
-//ITEMCOUNT PRIMER ENTRETA -VIEJO
+//ITEMCOUNT PRIMER ENTREGA -VIEJO
 // export function ItemCount ({stock, initial, onAdd}) {
 //     const [conteoItems, setCount] = useState(initial);
 //     function removeItem() {

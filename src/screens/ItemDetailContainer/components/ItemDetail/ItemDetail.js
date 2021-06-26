@@ -6,6 +6,8 @@ import {EventoCompra} from '../ItemCount/ItemCount'
 
 
 export const ItemDetail = ({...item}) => {
+    console.log(item)
+    console.log(item.id)
     return <>
         <Divider/>
         <Card variant="outlined">
@@ -13,7 +15,7 @@ export const ItemDetail = ({...item}) => {
             <h3>{item.title}</h3>
             <h4>{item.detail}</h4>
             <h5>${item.price}</h5>
-            <EventoCompra i={item.i} stock={item.stock}/>
+            <EventoCompra i={item.id} stock={item.stock}/>    
             <Link to='/'><button>Volver atrás</button></Link>
         </Card>
     </>
