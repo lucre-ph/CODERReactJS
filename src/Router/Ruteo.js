@@ -3,6 +3,7 @@ import {ItemListContainer} from '../screens/itemListContainer/ItemListContainer'
 import {ItemDetailContainer} from '../screens/ItemDetailContainer/ItemDetailContainer';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {Navbar} from '../components/navbar/Navbar'
+import {Cart} from '../screens/Cart/Cart'
 
 export const Ruteo = () => {
    return <BrowserRouter>
@@ -16,6 +17,9 @@ export const Ruteo = () => {
          </Route>
          <Route path='/item/:id'>
             <ItemDetailContainer/>
+         </Route>
+         <Route exact path='/cart'>
+            <Cart/>
          </Route>
       </Switch>
    </BrowserRouter>
