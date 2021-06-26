@@ -6,7 +6,6 @@ import 'materialize-css/dist/css/materialize.min.css'
 import {Link} from 'react-router-dom';
 
 
-//ShowMessage
 const ItemCount = props => {
     return <h3>{`${props.stock}`}</h3> 
 }
@@ -24,9 +23,9 @@ const ItemCount = props => {
 //         <span><button className="agregar" onClick={() => onAdd(conteoItems)}>Add to cart <AddShoppingCartIcon/></button></span>
 //     </div>
 // }
-//ComponenteCustomizado
 
 
+//FALTA INHABILITAR LINK HASTA QUE EL STOCK SEA DISTINTO DE 0
 const ButtonsComponent = ({cambiarStock, stock}) => {
     return <>
        <div>
@@ -34,11 +33,12 @@ const ButtonsComponent = ({cambiarStock, stock}) => {
           <button className="waves-effect waves-light btn-small" onClick={() => cambiarStock(stock-1)}>-</button>
        </div>
        <span>
-          <button><Link to='/Cart'>{`Add to cart`}<AddShoppingCartIcon/></Link></button>
+          <button disabled={stock>=0}><Link to='/Cart'>{`Add to cart`}<AddShoppingCartIcon/></Link></button>
        </span>
     </>
 }
-//StockContainer
+
+
 const ItemCountContainer = ({componente: StockHandler}) => {
     const initial = 0;
     const [stock, setStock] = useState(initial);
@@ -48,7 +48,6 @@ const ItemCountContainer = ({componente: StockHandler}) => {
     <StockHandler stock={stock} cambiarStock={handleStock}/></>;
 }
 
-//EventsExample
 export const EventoCompra = props => {
     return <ItemCountContainer componente={ButtonsComponent}/>
 }
