@@ -10,20 +10,11 @@ const ItemCount = props => {
     return <h3>{`${props.stock}`}</h3> 
 }
 //     function removeItem() {
-//         setCount(conteoItems>initial && conteoItems-1)
-//     };
+//         setCount(conteoItems>initial && conteoItems-1)};
 //     function addItem() {
-//         setCount(conteoItems<stock && conteoItems+1)
-//     };
-//     return <div className="itemCount">
-//         <button disabled={conteoItems===initial} onClick= {removeItem}> - </button>        
-//         <h2>{conteoItems}</h2>
-//         <button disabled={conteoItems===stock} onClick= {addItem}> + </button>    
-//         {conteoItems>=stock && <h5>¡Lo lamentamos! No hay más stock de este producto <SentimentVeryDissatisfiedIcon/></h5>}
-//         <span><button className="agregar" onClick={() => onAdd(conteoItems)}>Add to cart <AddShoppingCartIcon/></button></span>
-//     </div>
-// }
-
+//         setCount(conteoItems<stock && conteoItems+1)};
+//     return <div className="itemCount">     
+//         {conteoItems>=stock && <h5>¡Lo lamentamos! No hay más stock de este producto <SentimentVeryDissatisfiedIcon/></h5>}</div>}
 
 //FALTA INHABILITAR LINK HASTA QUE EL STOCK SEA DISTINTO DE 0
 const ButtonsComponent = ({cambiarStock, stock}) => {
