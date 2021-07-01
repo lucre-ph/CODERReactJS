@@ -2,7 +2,7 @@ import React from 'react';
 import {CartWidget} from '../cartWidget/CartWidget';
 import './Navbar.css';
 import {Link} from 'react-router-dom';
-import 'materialize-css/dist/css/materialize.min.css'
+import 'materialize-css/dist/css/materialize.min.css';
 
 
 export const Navbar = () => {
@@ -12,12 +12,15 @@ export const Navbar = () => {
 
   return <>
     <nav>
-      <h1><Link to='/'>{marca}</Link></h1>
-      <ul>
-        <li><Link to={`/category/${categoryId1}`}>{categoryId1}</Link></li>
-        <li><Link to={`/category/${categoryId2}`}>{categoryId2}</Link></li>
-      </ul>
-      <CartWidget/>
+       <div className="nav-wrapper">
+          <h1 className="brand-logo"><Link to='/'>{marca}</Link></h1>
+          <ul className="right hide-on-med-and-down">
+             <li><Link to='/'>Home</Link></li>
+             <li><Link to={`/category/${categoryId1}`}>{categoryId1}</Link></li>
+             <li><Link to={`/category/${categoryId2}`}>{categoryId2}</Link></li>
+             <li><CartWidget/></li>
+          </ul>
+       </div>
     </nav>
   </>
 };

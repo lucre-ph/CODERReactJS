@@ -5,7 +5,7 @@ export const productos = [
       alt: 'torta cheesecake', 
       category: 'Dulces',
       price: 500, 
-      stock: 10,
+      stock: 15,
       id: 1
     },
     {
@@ -14,7 +14,7 @@ export const productos = [
       alt: 'torta de chocolate', 
       category: 'Dulces',
       price: 500, 
-      stock: 10,
+      stock: 30,
       id: 2
     },
     {
@@ -32,7 +32,7 @@ export const productos = [
       alt: 'pan de ajo', 
       category: 'Salados',
       price: 150, 
-      stock: 10,
+      stock: 15,
       id: 4
     },
     {
@@ -41,7 +41,7 @@ export const productos = [
       alt: 'chipa', 
       category: 'Salados',
       price: 120, 
-      stock: 10,
+      stock: 100,
       id: 5
     },
     {
@@ -50,7 +50,7 @@ export const productos = [
       alt: 'empanada', 
       category: 'Salados',
       price: 50, 
-      stock: 10,
+      stock: 50,
       id: 6
     }
   ]  
