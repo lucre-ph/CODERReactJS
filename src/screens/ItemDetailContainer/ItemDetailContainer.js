@@ -3,7 +3,7 @@ import {ItemDetail} from './components/ItemDetail/ItemDetail';
 import {Container} from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {useParams} from 'react-router-dom';
-import {promesaCatalogo} from '../Services/promises';
+import {promesaCatalogo} from '../../Services/promises';
 
 
   export const ItemDetailContainer = () => {

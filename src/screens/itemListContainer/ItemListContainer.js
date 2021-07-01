@@ -3,7 +3,7 @@ import {ItemList} from './components/itemList/ItemList';
 import {Container} from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {useParams} from 'react-router-dom';
-import {promesaCatalogo} from '../Services/promises';
+import {promesaCatalogo} from '../../Services/promises';
 import 'materialize-css/dist/css/materialize.min.css'
 
 
