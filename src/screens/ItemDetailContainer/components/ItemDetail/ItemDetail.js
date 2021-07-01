@@ -10,12 +10,10 @@ export const ItemDetail = ({...item}) => {
 
     function onAdd (conteoItems) {   
         setFinalizarCompra (true)
-        console.log(conteoItems)
     }
 
     return <>
         <Divider/>
-        
         <Card variant="outlined">
             <img alt={item.alt} src={item.img}/>
             <h3>{item.title}</h3>
