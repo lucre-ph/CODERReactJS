@@ -1,12 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import Card from '@material-ui/core/Card';
 import Divider from '@material-ui/core/Divider';
 import {Link} from 'react-router-dom';
 import {ItemCount} from '../ItemCount/ItemCount';
+import {CartContextProvider} from '../../../../Context/CartContext';
 
 
 export const ItemDetail = ({...item}) => {    
-    const [finalizarCompra, setFinalizarCompra] = useState (false)
+    const [finalizarCompra, setFinalizarCompra] = useState()
 
     function onAdd (conteoItems) {   
         setFinalizarCompra (conteoItems)
@@ -19,8 +20,8 @@ export const ItemDetail = ({...item}) => {
             <h3>{item.title}</h3>
             <h4>{item.detail}</h4>
             <h5>${item.price}</h5> 
-            {finalizarCompra ? <><button><Link to='/Cart'>{`Finalizar compra`}</Link></button><h6>{`Agregaste ${finalizarCompra} unidades de este producto al carrito`}</h6></> : <ItemCount initial={1} stock={item.stock} onAdd={onAdd}/>}
-            <Link to='/'><button>Volver atrás</button></Link>
+            {finalizarCompra ? <><button><Link to='/Cart'>{`Finalizar compra`}</Link></button><h6>{`Agregaste ${finalizarCompra} unidades de este producto al carrito`}</h6></> : <ItemCount item={item} initial={1} stock={item.stock} onAdd={onAdd}/>}
+            <Link to='/'><button>{`Volver a home`}</button></Link>
         </Card>
     </>
 }
