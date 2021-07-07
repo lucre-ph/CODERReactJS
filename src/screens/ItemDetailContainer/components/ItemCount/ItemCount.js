@@ -9,7 +9,7 @@ import {CartContext} from '../../../../Context/CartContext';
 const Botones = ({item, initial, stock, onAdd, value}) => {
     console.log(item)
     const [conteoItems, setConteoItems] = useState(initial)
-    const [agregadosAlCarrito, setAgregadosAlCarrito] = useContext(CartContext)
+    const {addCartItem, removeCartItem} = useContext(CartContext)
 
     function removeItem() {
         setConteoItems(conteoItems>initial && conteoItems-1)

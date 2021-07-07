@@ -4,6 +4,7 @@ export const productos = [
       img: '/img/cheesecake.jpg', 
       alt: 'torta cheesecake', 
       category: 'Dulces',
+      detail: 'torta de 8 porciones del más fresco y cremoso cheesecake de frutos rojos. Puede encargarse por porción',
       price: 500, 
       stock: 15,
       id: 1
@@ -13,6 +14,7 @@ export const productos = [
       img: '/img/chocolate.jpg', 
       alt: 'torta de chocolate', 
       category: 'Dulces',
+      detail: 'torta de 8 porciones de bizcochuelo chocolate con mouse de chocolate con crema y cobertura. Puede encargarse por porción',
       price: 500, 
       stock: 30,
       id: 2
@@ -22,6 +24,7 @@ export const productos = [
       img: '/img/eclair.jpg', 
       alt: 'eclair', 
       category: 'Dulces',
+      detail: 'Unidad de masa bomba con crema pastelera y chantilly, decorada con frutas',
       price: 170, 
       stock: 10,
       id: 3
@@ -31,6 +34,7 @@ export const productos = [
       img: '/img/garlicBread.jpg', 
       alt: 'pan de ajo', 
       category: 'Salados',
+      detail: 'pan de ajo, ideal para acompañar cualquier picada',
       price: 150, 
       stock: 15,
       id: 4
@@ -40,6 +44,7 @@ export const productos = [
       img: '/img/chipa.jpg', 
       alt: 'chipa', 
       category: 'Salados',
+      detail: '100grs de chipacitos',
       price: 120, 
       stock: 100,
       id: 5
@@ -49,6 +54,7 @@ export const productos = [
       img: '/img/empanadas.jpg', 
       alt: 'empanada', 
       category: 'Salados',
+      detail: 'unidad de empanada vegetarianas. Opciones de relleno: "carne picada", "humita", "verdura", "cebolla y queso" ,"jamon y queso"',
       price: 50, 
       stock: 50,
       id: 6
