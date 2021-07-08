@@ -5,8 +5,8 @@ import {Link} from 'react-router-dom';
 import {ItemCount} from '../ItemCount/ItemCount';
 import {CartContext} from '../../../../Context/CartContext';
 
-export const ItemDetail = ({item}) => {  
-    console.log(item)  
+export const ItemDetail = (productDetail) => {  
+    const {item} = productDetail;
     const [finalizarCompra, setFinalizarCompra] = useState()
     const {addCartItem, removeCartItem} = useContext(CartContext)
 

@@ -18,7 +18,7 @@ export const Navbar = () => {
              <li><Link to='/'>Home</Link></li>
              <li><Link to={`/category/${categoryId1}`}>{categoryId1}</Link></li>
              <li><Link to={`/category/${categoryId2}`}>{categoryId2}</Link></li>
-             <li><CartWidget/></li>
+             <li><Link to={`/cart`}><CartWidget/></Link></li>
           </ul>
        </div>
     </nav>

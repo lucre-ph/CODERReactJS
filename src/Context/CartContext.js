@@ -1,7 +1,7 @@
 import React, {createContext, useState, useEffect} from 'react';
 import {ItemCount} from '../screens/ItemDetailContainer/components/ItemCount/ItemCount';
 import {ItemDetail} from '../screens/ItemDetailContainer/components/ItemDetail/ItemDetail';
-
+import {CartWidget} from '../components/cartWidget/CartWidget';
 
 export const CartContext = createContext(); 
    
@@ -18,7 +18,7 @@ export const CartContextProvider = () => {
         agregadosAlCarrito.find(agregados => agregados.item.id == id)
     }
     
-    const addCartItem = (item, id, quantity) => {
+    function addCartItem (item, id, quantity) {
         setAgregadosAlCarrito(agregadosAlCarrito => [...agregadosAlCarrito, {item: item, quantity: quantity}])
         setPrecio(precio + (item.price * item.quantity))
         setCantidadProductos(cantidadProductos + item.quantity)
@@ -36,14 +36,14 @@ export const CartContextProvider = () => {
         }}
         
 
-    const removeCartItem = (id) => {
+    function removeCartItem (id) {
         const selectRemoveItem = agregadosAlCarrito.find(itemCart => itemCart.id == id);
         setPrecio(precio - (selectRemoveItem.item.price * selectRemoveItem.quantity))
         setCantidadProductos(cantidadProductos - selectRemoveItem.quantity)
         setAgregadosAlCarrito(agregadosAlCarrito.filter((item) => item.id !== id));
     }
 
-    const clearCart = () =>{
+    function clearCart () {
         setAgregadosAlCarrito([0])
         setCantidadProductos(0)
         setPrecio(0)
@@ -52,5 +52,6 @@ export const CartContextProvider = () => {
     return <CartContext.Provider value={{agregadosAlCarrito, cantidadProductos, precio, addCartItem, removeCartItem, clearCart}}> 
         <ItemCount/>
         <ItemDetail/>
+        <CartWidget/>
     </CartContext.Provider>
 }
