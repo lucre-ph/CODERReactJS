@@ -46,7 +46,7 @@ export const productos = [
       category: 'Salados',
       detail: '100grs de chipacitos',
       price: 120, 
-      stock: 100,
+      stock: 20,
       id: 5
     },
     {

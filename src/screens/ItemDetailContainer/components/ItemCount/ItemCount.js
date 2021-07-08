@@ -3,13 +3,11 @@ import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissa
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import './ItemCountStyle.css'
 import 'materialize-css/dist/css/materialize.min.css'
-import {CartContext} from '../../../../Context/CartContext'; 
+// import {CartContext} from '../../../../Context/CartContext'; 
 
-
-const Botones = ({item, initial, stock, onAdd, value}) => {
-    console.log(item)
+const Botones = ({initial, stock, onAdd}) => {
     const [conteoItems, setConteoItems] = useState(initial)
-    const {addCartItem, removeCartItem} = useContext(CartContext)
+    // const [agregadosAlCarrito, setAgregadosAlCarrito] = useContext(CartContext)
 
     function removeItem() {
         setConteoItems(conteoItems>initial && conteoItems-1)
@@ -29,8 +27,8 @@ const Botones = ({item, initial, stock, onAdd, value}) => {
     </>
 }
 
-export const ItemCount = ({item, initial, stock, onAdd, ...value}) => {
+export const ItemCount = ({initial, stock, onAdd}) => {
     return <div>
-        <Botones item={item} initial={initial} stock={stock} onAdd={onAdd} value={value}/>
+        <Botones initial={initial} stock={stock} onAdd={onAdd}/>
     </div>
 }
