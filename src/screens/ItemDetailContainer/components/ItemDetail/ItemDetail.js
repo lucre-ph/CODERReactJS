@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom';
 import {ItemCount} from '../ItemCount/ItemCount';
 import {CartContext} from '../../../../Context/CartContext';
 
-
 export const ItemDetail = ({item}) => {  
     console.log(item)  
     const [finalizarCompra, setFinalizarCompra] = useState()
@@ -21,6 +20,13 @@ export const ItemDetail = ({item}) => {
         removeCartItem(item.detail.id);
     }
 
+    const AgregaronProductos = () => {
+        <>
+        <button><Link to='/Cart'>{`Finalizar compra`}</Link></button>
+        <h6>{`Agregaste ${finalizarCompra} unidades de este producto al carrito`}</h6>
+        </>
+    }
+
     return <>
         <Divider/>
         <Card variant="outlined">
@@ -28,10 +34,8 @@ export const ItemDetail = ({item}) => {
             <h3>{item.title}</h3>
             <h4>{item.detail}</h4>
             <h5>${item.price}</h5> 
-            {finalizarCompra ? <><button><Link to='/Cart'>{`Finalizar compra`}</Link></button><h6>{`Agregaste ${finalizarCompra} unidades de este producto al carrito`}</h6></> : <ItemCount item={item} initial={1} stock={item.stock} clickCancelar={clickCancelar} onAdd={onAdd}/>}
+            {finalizarCompra ? <AgregaronProductos/> : <ItemCount item={item} initial={1} stock={item.stock} clickCancelar={clickCancelar} onAdd={onAdd}/>}
             <Link to='/'><button>{`Volver a home`}</button></Link>
         </Card>
     </>
 }
-
-
