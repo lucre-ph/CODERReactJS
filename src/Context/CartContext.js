@@ -6,12 +6,12 @@ export const CartContextProvider = ({children}) => {
     const [agregadosAlCarrito, setAgregadosAlCarrito] = useState ([])
     // DESAFÍO 11 const [cantidadProductos, setCantidadProductos] = useState ([])
 
-    const isInCart = ({id}) => {
+    const isInCart = (id) => {
         if (agregadosAlCarrito.indexOf(id) === -1) {
-            isInCart(false)
+            isInCart(true)
             console.log('nuevo carrito:');
         } else if (agregadosAlCarrito.indexOf(id) > -1) {
-            isInCart(true)
+            isInCart(false)
             console.log('ya existe en carrito');
         }   
     }
