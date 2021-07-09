@@ -1,30 +1,38 @@
 import React, {createContext, useState, useEffect} from 'react';
-import {ItemCount} from '../screens/ItemDetailContainer/components/ItemCount/ItemCount';
 
 export const CartContext = createContext(); 
    
-export const CartContextProvider = () => { 
+export const CartContextProvider = ({children}) => { 
     const [agregadosAlCarrito, setAgregadosAlCarrito] = useState ([])
+    // DESAFÍO 11 const [cantidadProductos, setCantidadProductos] = useState ([])
+
+    const isInCart = ({id}) => {
+        if (agregadosAlCarrito.indexOf(id) === -1) {
+            isInCart(false)
+            console.log('nuevo carrito:');
+        } else if (agregadosAlCarrito.indexOf(id) > -1) {
+            isInCart(true)
+            console.log('ya existe en carrito');
+        }   
+    }
+    
+    function addItem(itemCarrito) {
+        <isInCart/> ? setAgregadosAlCarrito(itemCarrito) : setAgregadosAlCarrito([...agregadosAlCarrito, itemCarrito])    
+    }
+
+    function removeItem (/**/) {
+            //
+    }
+
+    function clearCart () {
+        setAgregadosAlCarrito([])
+    }
 
     useEffect(() => {
         console.log('Productos en carrito: ', agregadosAlCarrito)
     })
 
-//  isInCart: (id) => true|false*/
-    // function addItem(item, quantity) {
-        
-    // }
-
-    // function removeItem (id) {
-        
-    // }
-
-    // function clearCart () {
-    //     setAgregadosAlCarrito([0])
-    // }
-
-
-    return <CartContext.Provider value={{agregadosAlCarrito, setAgregadosAlCarrito}}> 
-        <ItemCount/>
+    return <CartContext.Provider value={{agregadosAlCarrito, isInCart, addItem, removeItem, clearCart}}> 
+        {children}
     </CartContext.Provider>
 }

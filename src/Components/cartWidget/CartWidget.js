@@ -9,7 +9,7 @@ import './CartWidget.css'
 
 export const CartWidget = () => {
   // const classes = useStyles();
-  return <Badge badgeContent={8} overlap="circular" color="secondary">
+  return <Badge badgeContent={8} color="secondary">
     <ShoppingCartTwoToneIcon className="carrito"/>
   </Badge>
 };
