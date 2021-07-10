@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import {Link} from 'react-router-dom';
 import {CartContext} from '../../Context/CartContext';
+import {Grid} from '@material-ui/core';
 
 const CarritoVacio = () => {
     return <div>
@@ -10,19 +11,25 @@ const CarritoVacio = () => {
 }
 
 const CarritoLleno = () => {
-    // MAPEAR ARRAY const {agregadosAlCarrito} = useContext(CartContext); 
-    return <ul>
-        <li>Proximamente</li>
-      {/* <li><img alt={agregadosAlCarrito.alt} src={agregadosAlCarrito.img}/></li>
-      <li><h3>{agregadosAlCarrito.title}</h3></li>
-      <li><h5>${agregadosAlCarrito.price}</h5></li> */}
-    </ul>
+    const {agregadosAlCarrito} = useContext(CartContext);
+    const {removeItem, clearCart} = useContext(CartContext);         
+
+    return <Grid>
+        {agregadosAlCarrito.map((producto, i) => { 
+            return <ul>
+                <li>{`producto.title`}</li>
+                <li>${`producto.price`}</li> 
+                <li><button onClick={() => removeItem()}>Eliminar producto</button></li>
+            </ul>
+        })}
+        <li><button onClick={() => clearCart()}>Vaciar carrito</button></li>
+    </Grid>
 }
 
-export const Cart = props => {
+export const Cart = () => {
     const {agregadosAlCarrito} = useContext(CartContext);    
     
     return <section>
-        {agregadosAlCarrito ? <CarritoLleno/> : <CarritoVacio/>}
+        {agregadosAlCarrito.length > 0 ? <CarritoLleno/> : <CarritoVacio/>}
     </section>
 }

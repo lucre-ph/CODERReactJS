@@ -5,7 +5,7 @@ import 'materialize-css/dist/css/materialize.min.css'
 
 export const Item = ({...producto}) => {
    
-   return <Card className="card darken-1">
+   return <Card className="col s4 card darken-1">
       <Link to={`/item/${producto.id}`}><img alt={producto.alt} src={producto.img}/></Link>
       <h3>{producto.title}</h3>
       <h5>${producto.price}</h5>

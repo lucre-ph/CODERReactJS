@@ -1,17 +1,20 @@
 import React from 'react';
 import {CartWidget} from '../cartWidget/CartWidget';
-import './Navbar.css';
 import {Link} from 'react-router-dom';
 import 'materialize-css/dist/css/materialize.min.css';
+import {NavbarStyles} from './NavbarStyles';
+import {makeStyles} from '@material-ui/core';
 
+const useStyles = makeStyles ((theme) => NavbarStyles (theme));
 
 export const Navbar = () => {
+  const classes = useStyles();
   const marca = 'LBakery';
   const categoryId1 = 'Dulces';
   const categoryId2 = 'Salados'
 
   return <>
-    <nav>
+    <nav className={classes.nav}>
        <div className="nav-wrapper">
           <h1 className="brand-logo"><Link to='/'>{marca}</Link></h1>
           <ul className="right hide-on-med-and-down">

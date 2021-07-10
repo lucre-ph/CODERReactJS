@@ -21,6 +21,6 @@ export const ItemListContainer = () => {
   
   
   return <>
-     {catalogo.length === 0 ? <CircularProgress/> : <Container><ItemList arrayProductos={catalogo}/></Container>}
+     {catalogo.length === 0 ? <CircularProgress/> : <Container className="row"><ItemList arrayProductos={catalogo}/></Container>}
   </>
 }

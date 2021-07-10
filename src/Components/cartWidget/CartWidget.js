@@ -1,15 +1,16 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import ShoppingCartTwoToneIcon from '@material-ui/icons/ShoppingCartTwoTone';
 import {Badge} from '@material-ui/core';
-// import {makeStyles} from '@material-ui/core';
-// import {cartWidgetStyles} from './cartWidgetStyles';
-import './CartWidget.css'
-
-// const useStyles = makeStyles ((theme) => cartWidgetStyles (theme));
+import {CartContext} from '../../Context/CartContext'; 
 
 export const CartWidget = () => {
-  // const classes = useStyles();
-  return <Badge badgeContent={8} color="secondary">
-    <ShoppingCartTwoToneIcon className="carrito"/>
-  </Badge>
+  const {cantidadProductos} = useContext(CartContext)
+
+  if (cantidadProductos > 0) {
+    return <Badge badgeContent={cantidadProductos} color="secondary">
+    <ShoppingCartTwoToneIcon/>
+  </Badge>}
+  else {
+    return <ShoppingCartTwoToneIcon/>
+  }
 };
