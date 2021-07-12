@@ -7,13 +7,13 @@ export const CartContextProvider = ({children}) => {
     const [cantidadProductos, setCantidadProductos] = useState ([])
     const [precio, setPrecio] = useState ([])
 
-    function isInCart (item) {
-        if (agregadosAlCarrito.indexOf(item.id) === -1) {
-            return false
-        } else {
-            return true
-        }   
-    }
+    // function isInCart (item) {
+    //     if (agregadosAlCarrito.indexOf(item.id) === -1) {
+    //         return false
+    //     } else {
+    //         return true
+    //     }   
+    // }
         //     if (isInCart) { 
     //         itemCarrito.quantity
     //     }
@@ -35,9 +35,9 @@ export const CartContextProvider = ({children}) => {
     }
 
     // function removeItem (id) {
-    //     const selectRemoveItem = agregadosAlCarrito.find(itemCart => itemCart.item.id === id);
-    //     setPrecio(precio - (selectRemoveItem.item.price * selectRemoveItem.quantity))
-    //     setCantidadProductos(cantidadProductos - selectRemoveItem.quantity)
+    //     const eliminarItem = agregadosAlCarrito.find(itemCarrito => itemCarrito.item.id === id);
+    //     setPrecio(precio - (eliminarItem.item.price * eliminarItem.quantity))
+    //     setCantidadProductos(cantidadProductos - eliminarItem.quantity)
     //     setAgregadosAlCarrito(agregadosAlCarrito.filter((item) => item.item.id !== id));
     // }
 
@@ -51,7 +51,7 @@ export const CartContextProvider = ({children}) => {
         console.log('Productos en carrito: ', agregadosAlCarrito)
     })
 
-    return <CartContext.Provider value={{agregadosAlCarrito, isInCart, addItem, clearCart, cantidadProductos}}> 
+    return <CartContext.Provider value={{agregadosAlCarrito, addItem, clearCart, cantidadProductos}}> 
         {children}
     </CartContext.Provider>
 }

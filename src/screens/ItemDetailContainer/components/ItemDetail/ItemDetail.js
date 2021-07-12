@@ -8,18 +8,18 @@ import {CartContext} from '../../../../Context/CartContext';
 
 export const ItemDetail = ({...item}) => {    
     const [finalizarCompra, setFinalizarCompra] = useState ()
-    const {addItem, isInCart} = useContext(CartContext)
+    const {addItem} = useContext(CartContext)
 
     function onAdd (quantity) {   
         setFinalizarCompra (quantity)
-        isInCart({id: item.id})
+        // isInCart({id: item.id})
         addItem({item: item, quantity: quantity});
     }
 
     const AgregaronProductos = () => {
         return <>
-            <button><Link to='/Cart'>{`Finalizar compra`}</Link></button>
-            <h6>{`Agregaste ${finalizarCompra} unidades de este producto al carrito`}</h6>
+            <button><Link to='/Cart'>{`Ir al carrito`}</Link></button>
+            {/* <button><Link to='/Cart'>{`Ir al carrito`}</Link></button> */}
         </>
     }
 
@@ -27,11 +27,11 @@ export const ItemDetail = ({...item}) => {
         <Divider/>
         <Card variant="outlined">
             <img alt={item.alt} src={item.img}/>
-            <h3>{item.title}</h3>
-            <h4>{item.detail}</h4>
-            <h5>${item.price}</h5> 
+            <h4>{item.title}</h4>
+            <h6>{item.detail}</h6>
+            <h6>${item.price}</h6> 
             {finalizarCompra ? <AgregaronProductos/> : <ItemCount initial={1} stock={item.stock} onAdd={onAdd}/>}
-            <Link to='/'><button>Volver atrás</button></Link>
+            <Link to='/'><button>Volver</button></Link>
         </Card>
     </>
 }

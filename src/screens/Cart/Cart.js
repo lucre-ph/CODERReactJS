@@ -11,17 +11,17 @@ const CarritoVacio = () => {
 }
 
 const CarritoLleno = () => {
-    const {agregadosAlCarrito} = useContext(CartContext);
-    const {removeItem, clearCart} = useContext(CartContext);         
+    const {clearCart} = useContext(CartContext);
+    // const {removeItem, agregadosAlCarrito} = useContext(CartContext);         
 
     return <Grid>
-        {agregadosAlCarrito.map((producto, i) => { 
+        {/* {agregadosAlCarrito.map((producto, i) => { 
             return <ul>
                 <li>{`producto.title`}</li>
                 <li>${`producto.price`}</li> 
                 <li><button onClick={() => removeItem()}>Eliminar producto</button></li>
             </ul>
-        })}
+        })} */}
         <li><button onClick={() => clearCart()}>Vaciar carrito</button></li>
     </Grid>
 }
