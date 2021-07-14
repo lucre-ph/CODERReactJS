@@ -23,7 +23,7 @@ export const CartContextProvider = ({children}) => {
 
     function addItem(itemCarrito) {
         setPrecio(precio + (itemCarrito.item.price * itemCarrito.quantity))
-        setCantidadProductos(cantidadProductos + itemCarrito.quantity)
+        setCantidadProductos(Number(cantidadProductos) + Number(itemCarrito.quantity))
         const producto = agregadosAlCarrito.find(agregadoAlCarrito => agregadoAlCarrito.item.id === itemCarrito.item.id)
         if (producto){
             const actualizarItem = producto.quantity + itemCarrito.quantity
