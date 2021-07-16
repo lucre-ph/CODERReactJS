@@ -6,15 +6,12 @@ import {useParams} from 'react-router-dom';
 import {promesaCatalogo} from '../../Services/promises';
 import 'materialize-css/dist/css/materialize.min.css'
 
-
-
 export const ItemListContainer = () => {
   const [catalogo, setCatalogo] = useState([]);  
   const {id} = useParams ();
 
   useEffect(() => {
     promesaCatalogo().then(items => {
-
       id === undefined ? setCatalogo(items) : setCatalogo(items.filter(item => item.category === id))
     })     
   }, [id])  

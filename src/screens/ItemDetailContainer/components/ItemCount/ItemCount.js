@@ -16,12 +16,12 @@ const Botones = ({initial, stock, onAdd}) => {
 
     return <>
             <div style={{ display:"flex" }}>
-                <button className="waves-effect waves-light btn-small" disabled={quantity===initial} onClick= {removeItem}> - </button>        
+                <button className="waves-effect waves-light btn-small" disabled={quantity===initial} onClick= {removeItem}>{`-`}</button>        
                 <h4>{quantity}</h4>
-                <button className="waves-effect waves-light btn-small" disabled={quantity===stock} onClick= {addItem}> + </button>    
+                <button className="waves-effect waves-light btn-small" disabled={quantity===stock} onClick= {addItem}>{`+`}</button>    
             </div>
         {quantity>=stock && <h5>No hay más stock disponible de este producto <SentimentVeryDissatisfiedIcon/></h5>}
-        <button onClick={() => onAdd(quantity)}> Add to cart <AddShoppingCartIcon/></button>
+        <button onClick={() => onAdd(quantity)}>{`Add to cart`}<AddShoppingCartIcon/></button>
     </>
 }
 

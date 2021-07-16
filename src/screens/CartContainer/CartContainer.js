@@ -11,18 +11,16 @@ const CarritoVacio = () => {
 }
 
 // const CarritoLleno = () => {
-//     const {clearCart} = useContext(CartContext);
-//     // const {removeItem, agregadosAlCarrito} = useContext(CartContext);         
-
-//     return <div/>
-//         {/* {agregadosAlCarrito.map((producto, i) => { 
-//             return <ul>
-//                 <li>{`producto.title`}</li>
-//                 <li>${`producto.price`}</li> 
-//                 <li><button onClick={() => removeItem()}>Eliminar producto</button></li>
-//             </ul>
-//         })} */}
-//         <li><button onClick={() => clearCart()}>Vaciar carrito</button></li>
+//     const {clearCart, agregadosAlCarrito} = useContext(CartContext);
+//     return <div>
+//         {agregadosAlCarrito.map((producto, i) => { 
+//             return <div><h1>{producto.item.title}</h1>
+//                 <h1>{producto.quantity}</h1>
+//                 <h1>{producto.item.price}</h1>
+//                 <img alt={producto.item.alt} src={producto.item.img}/>
+//             </div>
+//         })}
+//         <button onClick={() => clearCart()}>Vaciar carrito</button>
 //     </div>
 // }
 

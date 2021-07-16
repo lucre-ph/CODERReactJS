@@ -12,14 +12,12 @@ export const ItemDetail = ({...item}) => {
 
     function onAdd (quantity) {   
         setFinalizarCompra (quantity)
-        // isInCart({id: item.id})
         addItem({item: item, quantity: quantity});
     }
 
     const AgregaronProductos = () => {
         return <>
             <button><Link to='/Cart'>{`Ir al carrito`}</Link></button>
-            {/* <button><Link to='/Cart'>{`Ir al carrito`}</Link></button> */}
         </>
     }
 
