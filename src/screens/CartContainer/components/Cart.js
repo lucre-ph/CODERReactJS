@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
 import {CartContext} from '../../../Context/CartContext';
 import 'materialize-css/dist/css/materialize.min.css';
-import {Delete} from '@material-ui/icons/Delete';
 import {CartStyles} from '../CartStyles';
 import {makeStyles} from '@material-ui/core';
+import DeleteTwoTone from '@material-ui/icons/DeleteTwoTone';
 
 const useStyles = makeStyles ((theme) => CartStyles (theme));
 
@@ -12,7 +12,6 @@ function purchase () {
 }
 
 export const Cart = () => {  
-    // const {removeItem} = useContext(CartContext); 
     const classes = useStyles();
     const {clearCart, agregadosAlCarrito} = useContext(CartContext);
 
@@ -24,6 +23,7 @@ export const Cart = () => {
                     <th>{`Producto`}</th>
                     <th>{`Cantidad`}</th>
                     <th>{`Precio`}</th>
+                    <th>{`Subtotal`}</th>
                     <th>{` `}</th>
                 </tr>
             </thead>
@@ -33,14 +33,15 @@ export const Cart = () => {
                         <td><img className={classes.img} alt={`${producto.item.alt}`} src={`${producto.item.img}`}/></td>
                         <td>{`${producto.item.title}`}</td>
                         <td>{`${producto.quantity}`}</td>
-                        <td>{`${producto.item.price}`}</td>
-                        <td><button className="waves-effect waves-light btn"><i className="material-icons left"></i>{`Eliminar producto`}</button></td>
+                        <td>{`$${producto.item.price}`}</td>
+                        <td>{`$${producto.item.price}`}</td>
+                        <td><button onClick={() => clearCart()} className="waves-effect waves-light btn"><DeleteTwoTone/>{`Eliminar producto`}</button></td>
                     </tr>
             ))}
             </tbody>
         </table> 
         {/* <button onClick={removeItem()}></button> */}
         <button onClick={() => clearCart()}>Vaciar carrito</button>
-        <button onClick={e=>purchase()}>{`Finalizar compra`}</button>
+        <button onClick={e => purchase()}>{`Finalizar compra`}</button>
     </section>
 }

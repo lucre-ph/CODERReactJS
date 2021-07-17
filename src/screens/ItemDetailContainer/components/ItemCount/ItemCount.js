@@ -21,7 +21,7 @@ const Botones = ({initial, stock, onAdd}) => {
                 <button className="waves-effect waves-light btn-small" disabled={quantity===stock} onClick= {addItem}>{`+`}</button>    
             </div>
         {quantity>=stock && <h5>No hay más stock disponible de este producto <SentimentVeryDissatisfiedIcon/></h5>}
-        <button onClick={() => onAdd(quantity)}>{`Add to cart`}<AddShoppingCartIcon/></button>
+        <button onClick={() => onAdd(quantity)}>{`Agregar al carrito`}<AddShoppingCartIcon/></button>
     </>
 }
 
