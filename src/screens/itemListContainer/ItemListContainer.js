@@ -5,7 +5,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import {useParams} from 'react-router-dom';
 import {promesaCatalogo} from '../../Services/promises';
 import 'materialize-css/dist/css/materialize.min.css'
-import {dataBase} from '../../Firebase/firebase';
+// import {dataBase} from '../../Firebase/firebase';
 
 export const ItemListContainer = () => {
   const [catalogo, setCatalogo] = useState([]);  
@@ -17,7 +17,7 @@ export const ItemListContainer = () => {
   //   itemCollection.get().then((querySnapshot) => {
   //     setCatalogo(querySnapshot.docs.find)(doc => doc.data.id == id)
   //   })
-  // })
+  // }, [id])
 
   useEffect(() => {
     promesaCatalogo().then(items => {

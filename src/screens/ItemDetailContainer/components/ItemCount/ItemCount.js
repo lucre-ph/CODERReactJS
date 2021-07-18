@@ -4,7 +4,7 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import './ItemCountStyle.css'
 import 'materialize-css/dist/css/materialize.min.css'
 
-const Botones = ({initial, stock, onAdd}) => {
+const Botones = ({price, initial, stock, onAdd}) => {
     const [quantity, setQuantity] = useState(initial)
 
     function removeItem() {

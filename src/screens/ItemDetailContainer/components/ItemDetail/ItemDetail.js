@@ -20,8 +20,7 @@ export const ItemDetail = ({...item}) => {
             <img alt={item.alt} src={item.img}/>
             <h4>{item.title}</h4>
             <h6>{item.detail}</h6>
-            <h6>${item.price}</h6> 
-            {finalizarCompra ? <AgregaronProductos/> : <ItemCount initial={1} stock={item.stock} onAdd={onAdd}/>}
+            {finalizarCompra ? <AgregaronProductos/> : <ItemCount price={item.price} initial={1} stock={item.stock} onAdd={onAdd}/>}
             <Link to='/'><button>Volver</button></Link>
         </>
     }

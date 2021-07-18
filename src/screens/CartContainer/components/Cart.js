@@ -13,7 +13,7 @@ function purchase () {
 
 export const Cart = () => {  
     const classes = useStyles();
-    const {clearCart, agregadosAlCarrito, removeItem} = useContext(CartContext);
+    const {clearCart, agregadosAlCarrito, removeItem, precio} = useContext(CartContext);
 
     return <section>
         <table className="responsive-table highlight">
@@ -34,14 +34,14 @@ export const Cart = () => {
                         <td>{`${producto.item.title}`}</td>
                         <td>{`${producto.quantity}`}</td>
                         <td>{`$${producto.item.price}`}</td>
-                        <td>{`$${producto.item.price}`}</td>
+                        <td>{`$${precio}`}</td>
                         <td><button onClick={() => removeItem(producto.item.id)} className="waves-effect waves-light btn"><DeleteTwoTone/>{`Eliminar producto`}</button></td>
                     </tr>
             ))}
             </tbody>
         </table> 
-        {/* <button onClick={removeItem()}></button> */}
-        <button onClick={() => clearCart()}>Vaciar carrito</button>
+        <span className={classes.total}>{`Precio total: $${precio}`}</span>
+        {agregadosAlCarrito.length >1 && <button onClick={() => clearCart()}>Vaciar carrito</button>}
         <button onClick={e => purchase()}>{`Finalizar compra`}</button>
     </section>
 }
