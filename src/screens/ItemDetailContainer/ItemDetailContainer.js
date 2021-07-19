@@ -10,7 +10,6 @@ export const ItemDetailContainer = () => {
   const [productDetail, setProductDetail] = useState([]);  
   const {id} = useParams ();
 
-
 //   export const promesaCatalogo = () => {
 //     return new Promise ((resolve, reject) => {
 //         setTimeout(() => productos.length > 0 ? resolve (productos) : reject ("Error al obtener los productos. Intenta nuevamente"), 2000);
@@ -22,7 +21,6 @@ export const ItemDetailContainer = () => {
   //     setProductDetail(querySnapshot.docs.where)(doc => doc.data.id == id)
   //   })
   // })
-
 
   useEffect(() => {
     promesaCatalogo().then (items => {

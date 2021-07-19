@@ -14,7 +14,6 @@ export const ItemDetail = ({...item}) => {
         addItem({item: item, quantity: quantity});
     }
 
-
     const Card = () => { //material: outlined
         return <>
             <img alt={item.alt} src={item.img}/>
@@ -26,9 +25,9 @@ export const ItemDetail = ({...item}) => {
     }
 
     const AgregaronProductos = () => {
-        return <>
-            <button><Link to='/Cart'>{`Ir al carrito`}</Link></button>
-        </>
+        return <button>
+            <Link to='/Cart'>{`Ir al carrito`}</Link>
+        </button>
     }
 
     return <Card/>

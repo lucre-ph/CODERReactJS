@@ -4,14 +4,18 @@ import 'materialize-css/dist/css/materialize.min.css';
 import {CartStyles} from '../CartStyles';
 import {makeStyles} from '@material-ui/core';
 import DeleteTwoTone from '@material-ui/icons/DeleteTwoTone';
+import {Alert, AlertTitle} from '@material-ui/lab/';
 
 const useStyles = makeStyles ((theme) => CartStyles (theme));
 
 function purchase () {
-    alert("¡Muchas gracias por tu compra!")
+    return <Alert severity="success">
+        <AlertTitle>"¡Muchas gracias por tu compra!"</AlertTitle>
+        <strong>check it out!</strong>
+    </Alert>
 }
 
-export const Cart = () => {  
+const ShoppingCartTable = () => {
     const classes = useStyles();
     const {clearCart, agregadosAlCarrito, removeItem, precio} = useContext(CartContext);
 
@@ -41,7 +45,11 @@ export const Cart = () => {
             </tbody>
         </table> 
         <span className={classes.total}>{`Precio total: $${precio}`}</span>
-        {agregadosAlCarrito.length >1 && <button onClick={() => clearCart()}>Vaciar carrito</button>}
+        {agregadosAlCarrito.length >1 && <button onClick={() => clearCart()}>{`Vaciar carrito`}</button>}
         <button onClick={e => purchase()}>{`Finalizar compra`}</button>
     </section>
+}
+
+export const Cart = () => {  
+    return <ShoppingCartTable/>
 }
