@@ -8,7 +8,6 @@ export const CartContextProvider = ({children}) => {
     const [precio, setPrecio] = useState (0)
 
     function addItem(itemCarrito) {
-        console.log(precio)
         setPrecio(precio + (Number(itemCarrito.item.price) * Number(itemCarrito.quantity)))
         setCantidadProductos(Number(cantidadProductos) + Number(itemCarrito.quantity))
         const producto = agregadosAlCarrito.find(agregadoAlCarrito => agregadoAlCarrito.item.id === itemCarrito.item.id)
@@ -19,7 +18,6 @@ export const CartContextProvider = ({children}) => {
         } else {
         setAgregadosAlCarrito(productosAgregados => [...productosAgregados, itemCarrito])
         }
-        console.log(precio)   
     }
 
     function removeItem (id) {
@@ -34,9 +32,7 @@ export const CartContextProvider = ({children}) => {
         setAgregadosAlCarrito([])
         setPrecio(0)
         setCantidadProductos(0)
-        console.log(precio)
     }
-
     useEffect(() => {
         console.log('Productos en carrito: ', agregadosAlCarrito)
     })

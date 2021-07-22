@@ -16,6 +16,6 @@ export const ItemListContainer = () => {
   }, [id]) 
   
   return <>
-     {catalogo.length === 0 ? <CircularProgress/> : <Container className="row"><ItemList arrayProductos={catalogo}/></Container>}
+     {catalogo.length === 0 ? <CircularProgress/> : <main><Container className="row"><ItemList arrayProductos={catalogo}/></Container></main>}
   </>
 }

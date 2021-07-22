@@ -13,17 +13,19 @@ const LinksDeNavegacion = () => {
    const categoryId1 = 'Dulces';
    const categoryId2 = 'Salados';
 
-   return <nav className={classes.nav}>
-      <div className="nav-wrapper">
-         <h1 className="brand-logo"><Link to='/'>{marca}</Link></h1>
-         <ul className="right">
-            <li><Link to='/'>Home</Link></li>
-            <li><Link to={`/category/${categoryId1}`}>{categoryId1}</Link></li>
-            <li><Link to={`/category/${categoryId2}`}>{categoryId2}</Link></li>
-            <li><Link to={`/cart`}><CartWidget/></Link></li>
-         </ul>
-      </div>
-   </nav>
+   return <header>
+      <nav className={classes.nav}>
+         <div className="nav-wrapper">
+            <h1 className="brand-logo"><Link to='/'>{marca}</Link></h1>
+            <ul className="right">
+               <li><Link to='/'>Home</Link></li>
+               <li><Link to={`/category/${categoryId1}`}>{categoryId1}</Link></li>
+               <li><Link to={`/category/${categoryId2}`}>{categoryId2}</Link></li>
+               <li><Link to={`/cart`}><CartWidget/></Link></li>
+            </ul>
+         </div>
+      </nav>
+   </header>
 }
 
 export const Navbar = () => {

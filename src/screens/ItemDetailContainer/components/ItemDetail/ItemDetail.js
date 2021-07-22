@@ -16,11 +16,12 @@ export const ItemDetail = ({...item}) => {
 
     const Card = () => { //material: outlined
         return <>
-            <img alt={item.alt} src={item.img}/>
-            <h4>{item.title}</h4>
-            <h6>{item.detail}</h6>
+            <img alt={`${item.alt}`} src={`${item.img}`}/>
+            <h4>{`${item.title}`}</h4>
+            <h5>{`${item.detail}`}</h5>
+            <h6>{`Precio unitario: $${item.price}`}</h6>
             {finalizarCompra ? <AgregaronProductos/> : <ItemCount price={item.price} initial={1} stock={item.stock} onAdd={onAdd}/>}
-            <Link to='/'><button>Volver</button></Link>
+            <Link to='/'><button>{`Volver`}</button></Link>
         </>
     }
 
