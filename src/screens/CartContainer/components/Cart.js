@@ -5,6 +5,8 @@ import {CartStyles} from '../CartStyles';
 import {makeStyles} from '@material-ui/core';
 import DeleteTwoTone from '@material-ui/icons/DeleteTwoTone';
 import {FormularioDeCompra} from './FormularioDeCompra';
+import firebase from 'firebase/app';
+import {dataBase} from '../../../Firebase/firebase';
 
 const useStyles = makeStyles ((theme) => CartStyles (theme));
 
@@ -21,11 +23,11 @@ const ShoppingCartTable = () => {
         <table className="responsive-table highlight">
             <thead>
                 <tr>
-                    <th>{` `}</th>
-                    <th>{`Producto`}</th>
-                    <th>{`Cantidad`}</th>
-                    <th>{`Precio unitario`}</th>
-                    <th>{` `}</th>
+                    <th></th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio unitario</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -42,13 +44,30 @@ const ShoppingCartTable = () => {
         </table> 
         <span className={classes.total}>{`Precio total: $${precio}`}</span>
         {agregadosAlCarrito.length >1 && <button onClick={() => clearCart()}>{`Vaciar carrito`}</button>}
-        <button onClick={e => checkout()}>{`Checkout`}</button>
+        <button onClick={e => checkout()}>Checkout</button>
     </section>
 }
 
-export const Cart = () => {  
+export const Cart = () => {   
+    const {agregadosAlCarrito, precio, clearCart} = useContext(CartContext);
+    
+    async function purchase (buyerData) {
+        const newOrder = await dataBase.collection("orders")  
+
+        const order = {
+            buyer: buyerData,
+            items: agregadosAlCarrito,
+            date: firebase.firestore.Timestamp.fromDate(new Date()),
+            total: precio,
+        }
+
+        await newOrder.add(order).then(buyerData => console.log(buyerData.id))
+        console.log("muchas gracias por su compra")
+        clearCart();
+    }
+
     return <>
         <ShoppingCartTable/>
-        <FormularioDeCompra/>
+        <FormularioDeCompra purchase={purchase}/>
     </>
 }
