@@ -1,5 +1,4 @@
 import React, {useState, useContext} from 'react';
-// import Card from '@material-ui/core/Card';
 import {Link} from 'react-router-dom';
 import {ItemCount} from '../ItemCount/ItemCount';
 import {CartContext} from '../../../../Context/CartContext'; 
@@ -14,7 +13,7 @@ export const ItemDetail = ({...item}) => {
         addItem({item: item, quantity: quantity});
     }
 
-    const Card = () => { //material: outlined
+    const Card = () => {
         return <>
             <img alt={`${item.alt}`} src={`${item.img}`}/>
             <h4>{`${item.title}`}</h4>

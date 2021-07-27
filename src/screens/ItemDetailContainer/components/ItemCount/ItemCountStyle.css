@@ -10,16 +10,6 @@
     flex-basis: 100%;
 }
 
-button {
-    color: white;
-    background-color: rgb(177, 85, 100); 
-    border-radius: 3px;
-    border: solid 3px rgb(241, 232, 237);
-    margin: 20px;
-    padding: 1%;
-    cursor: pointer;
-}
-
 button:disabled {
     background-color: gray;
     cursor: inherit;

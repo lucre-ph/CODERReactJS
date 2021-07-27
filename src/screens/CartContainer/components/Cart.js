@@ -1,19 +1,14 @@
 import React, {useContext} from 'react';
 import {CartContext} from '../../../Context/CartContext';
-import 'materialize-css/dist/css/materialize.min.css';
-import {CartStyles} from '../CartStyles';
+import '../CartStyles.css'
 import {makeStyles} from '@material-ui/core';
 import DeleteTwoTone from '@material-ui/icons/DeleteTwoTone';
 import {FormularioDeCompra} from './FormularioDeCompra';
 import firebase from 'firebase/app';
 import {dataBase} from '../../../Firebase/firebase';
+import {CommonStyles} from '../../../components/styles/commonStyles'
 
-const useStyles = makeStyles ((theme) => CartStyles (theme));
-
-function checkout () {
-    console.log("Rellenar formulario")
-    //Visibilizar formulario/scrollear a formulario?
-}
+const useStyles = makeStyles ((theme) => CommonStyles (theme));
 
 const ShoppingCartTable = () => {
     const classes = useStyles();
@@ -33,18 +28,17 @@ const ShoppingCartTable = () => {
             <tbody>
             {agregadosAlCarrito.map((producto, i) => (
                     <tr>
-                        <td><img className={classes.img} alt={`${producto.item.alt}`} src={`${producto.item.img}`}/></td>
+                        <td><img style={{ width: '4rem', heigth: '5rem'}} alt={`${producto.item.alt}`} src={`${producto.item.img}`}/></td>
                         <td>{`${producto.item.title}`}</td>
                         <td>{`${producto.quantity}`}</td>
                         <td>{`$${producto.item.price}`}</td>
-                        <td><button onClick={() => removeItem(producto.item.id)} className="waves-effect waves-light btn"><DeleteTwoTone/>{`Eliminar producto`}</button></td>
+                        <td><button onClick={() => removeItem(producto.item.id)} className={classes.button}><DeleteTwoTone/></button></td>
                     </tr>
             ))}
             </tbody>
         </table> 
-        <span className={classes.total}>{`Precio total: $${precio}`}</span>
-        {agregadosAlCarrito.length >1 && <button onClick={() => clearCart()}>{`Vaciar carrito`}</button>}
-        <button onClick={e => checkout()}>Checkout</button>
+        <span style={{ left: '20%'}}>{`Precio total: $${precio}`}</span>
+        {agregadosAlCarrito.length >1 && <button className={classes.button} onClick={() => clearCart()}>{`Vaciar carrito`}</button>}
     </section>
 }
 
@@ -62,7 +56,7 @@ export const Cart = () => {
         }
 
         await newOrder.add(order).then(buyerData => console.log(buyerData.id))
-        console.log("muchas gracias por su compra")
+        alert("muchas gracias por su compra!");
         clearCart();
     }
 
