@@ -10,5 +10,5 @@ const App = () => {
     </CartContextProvider>
   </BrowserRouter>
 }
-console.log("hola");
+
 export default App;
